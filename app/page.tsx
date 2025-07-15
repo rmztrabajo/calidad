@@ -13,7 +13,7 @@ export default function LoginPage() {
     const res = await fetch("/api/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // ✅ NECESARIO
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     });
@@ -36,4 +36,26 @@ export default function LoginPage() {
             type="email"
             placeholder="Correo electrónico"
             className="border rounded px-3 py-2"
-            value={em
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            className="border rounded px-3 py-2"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button
+            type="submit"
+            className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+          >
+            Iniciar sesión
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
